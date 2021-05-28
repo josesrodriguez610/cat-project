@@ -1,0 +1,19 @@
+.search-input {
+  margin-left: 10px;
+  padding-right: 0px;
+  border-width: 0px;
+  border: none;
+  outline: 0;
+  width: 90%;
+}
+
+.search-container {
+  width: 70%;
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 2px;
+  padding-left: 10px;
+  padding-top: 4px;
+  display: flex;
+  align-items: center;
+}
