@@ -3,9 +3,7 @@ const Option = (props) => {
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "center",
-        paddingTop: "20px",
+        paddingTop: "30px",
       }}
     >
       <Component {...props} />

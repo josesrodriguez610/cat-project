@@ -48,7 +48,6 @@ const FormEdit = ({
           <input
             className="form-control"
             type="date"
-            pattern="\d{4}-\d{2}-\d{2}"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />

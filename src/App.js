@@ -72,18 +72,23 @@ function App() {
             setSearchInput={setSearchInput}
           />
         </div>
-        <div className="col-md-8">
+        <div className="col-md-7">
           <RightDisplay cat={stateCat} />
           {stateCat && (
-            <>
-              <h1 onClick={() => setEditCatModalOpen(true)} disabled={true}>
+            <div className="options-bottom">
+              <button
+                className="btn btn-primary btn-lg"
+                onClick={() => setEditCatModalOpen(true)}
+              >
                 edit
-              </h1>{" "}
-              |
-              <h1 onClick={() => setDeleteConfirmationModalOpen(true)}>
-                Delete
-              </h1>
-            </>
+              </button>{" "}
+              <button
+                className="btn btn-danger btn-lg"
+                onClick={() => setDeleteConfirmationModalOpen(true)}
+              >
+                delete
+              </button>
+            </div>
           )}
         </div>
       </div>
@@ -92,6 +97,7 @@ function App() {
           <Modal
             title={`Edit ${stateCat.name}`}
             leftButtonTitle="Save"
+            leftButtonColor="btn-primary"
             handleDeleteFromList={handleDeleteFromList}
             setModalCancel={setEditCatModalOpen}
             Component={FormEdit}
@@ -112,6 +118,7 @@ function App() {
           <Modal
             title="Are you sure you want to delete this cat?"
             leftButtonTitle="Delete"
+            leftButtonColor="btn-danger"
             handleSubmit={handleDeleteFromList}
             setModalCancel={setDeleteConfirmationModalOpen}
           />

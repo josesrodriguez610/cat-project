@@ -38,7 +38,7 @@ const LeftOptions = ({
               style={{
                 height: "34%",
                 borderTop: "1px solid",
-                paddingLeft: "30px",
+                paddingLeft: "40px",
               }}
             >
               <Option

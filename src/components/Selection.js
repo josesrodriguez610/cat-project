@@ -16,13 +16,24 @@ const Selection = ({ stateCats, cat, stateCat, setStateCats, setStateCat }) => {
       key={id}
       style={{ cursor: "pointer" }}
     >
-      <div className="col-xs-6 col-md-5">
-        <div className="thumbnail">
-          <img src={thumbnailUrl} alt={name} />
+      <div className="col-xs-6 col-md-8">
+        <div style={{ display: "flex" }}>
+          <img
+            style={{
+              width: "150px",
+              objectFit: "cover",
+              boxShadow: "5px 5px 5px rgba(68, 68, 68, 0.6)",
+              borderRadius: "5px",
+            }}
+            src={thumbnailUrl}
+            alt={name}
+          />
+          <span>{name}</span>
         </div>
-        <span>{name}</span>
+        <div>
+          <span>{formatDate(birthDate)}</span>
+        </div>
       </div>
-      <span>{formatDate(birthDate)}</span>
     </div>
   );
 };
