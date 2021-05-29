@@ -1,12 +1,17 @@
 import { FaSearch } from "react-icons/fa";
 import "../styles/Search.css";
 
-const Search = () => {
+const Search = ({ searchInput, setSearchInput }) => {
   return (
     <>
       <div className="search-container">
         <FaSearch className="search-icon" />
-        <input className="search-input" type="text" />
+        <input
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+          className="search-input"
+          type="text"
+        />
       </div>
     </>
   );

@@ -1,3 +1,4 @@
+import { formatDate } from "../utils/helperFunctions";
 const RightDisplay = ({ cat }) => {
   // const { id, thumbnailUrl, name, birthDate, ownerName, viewsCount } = cat;
   return (
@@ -13,7 +14,7 @@ const RightDisplay = ({ cat }) => {
             />
             <div className="caption">
               <h3>{cat.name}</h3>
-              <p>{cat.birthDate}</p>
+              <p>{formatDate(cat.birthDate)}</p>
               <p>{cat.ownerName}</p>
               <p>Number of views: {cat.viewsCount} times</p>
             </div>

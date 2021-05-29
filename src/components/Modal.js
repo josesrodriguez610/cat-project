@@ -1,21 +1,16 @@
 const Modal = (props) => {
-  const {
-    handleDeleteFromList,
-    setModalCancel,
-    title,
-    leftButtonTitle,
-    Component,
-  } = props;
+  const { handleSubmit, setModalCancel, title, leftButtonTitle, Component } =
+    props;
 
   return (
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">{title}</h5>
+    <div className="modal-dialog" role="document">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title">{title}</h5>
           <button
             onClick={() => setModalCancel(false)}
             type="button"
-            class="close"
+            className="close"
             data-dismiss="modal"
             aria-label="Close"
           >
@@ -23,21 +18,21 @@ const Modal = (props) => {
           </button>
         </div>
         {Component && (
-          <div class="modal-body">
+          <div className="modal-body">
             <Component {...props} />
           </div>
         )}
-        <div class="modal-footer">
+        <div className="modal-footer">
           <button
             type="button"
-            class="btn btn-primary"
-            onClick={handleDeleteFromList}
+            className="btn btn-primary"
+            onClick={handleSubmit}
           >
             {leftButtonTitle}
           </button>
           <button
             type="button"
-            class="btn btn-secondary"
+            className="btn btn-secondary"
             data-dismiss="modal"
             onClick={() => setModalCancel(false)}
           >

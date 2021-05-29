@@ -12,6 +12,28 @@ function App() {
   const [editCatModalOpen, setEditCatModalOpen] = useState(false);
   const [deleteConfirmationModalOpen, setDeleteConfirmationModalOpen] =
     useState(false);
+  const [thumbnail, setThumbnail] = useState("");
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+  const [owner, setOwner] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+    const findCat = stateCats.find((cat) => cat.id === stateCat.id);
+    findCat.thumbnailUrl =
+      !thumbnail || /^\s*$/.test(thumbnail) ? stateCat.thumbnailUrl : thumbnail;
+    findCat.name = !name || /^\s*$/.test(name) ? stateCat.name : name;
+    findCat.birthDate = !date || /^\s*$/.test(date) ? stateCat.birthDate : date;
+    findCat.ownerName =
+      !owner || /^\s*$/.test(owner) ? stateCat.ownerName : owner;
+    setStateCat(findCat);
+    setEditCatModalOpen(false);
+    setThumbnail("");
+    setName("");
+    setDate("");
+    setOwner("");
+  };
 
   const handleDeleteFromList = () => {
     if (stateCat) {
@@ -23,7 +45,7 @@ function App() {
   };
 
   return (
-    <div className=" app container">
+    <div className="app container">
       <div className="row">
         <div className="col-md-4">
           <LeftOptions
@@ -31,6 +53,8 @@ function App() {
             setStateCats={setStateCats}
             stateCat={stateCat}
             setStateCat={setStateCat}
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
           />
         </div>
         <div className="col-md-8">
@@ -56,6 +80,15 @@ function App() {
             handleDeleteFromList={handleDeleteFromList}
             setModalCancel={setEditCatModalOpen}
             Component={FormEdit}
+            thumbnail={thumbnail}
+            setThumbnail={setThumbnail}
+            name={name}
+            setName={setName}
+            date={date}
+            setDate={setDate}
+            owner={owner}
+            setOwner={setOwner}
+            handleSubmit={handleEditSubmit}
           />
         </div>
       )}
@@ -64,7 +97,7 @@ function App() {
           <Modal
             title="Are you sure you want to delete this cat?"
             leftButtonTitle="Delete"
-            handleDeleteFromList={handleDeleteFromList}
+            handleSubmit={handleDeleteFromList}
             setModalCancel={setDeleteConfirmationModalOpen}
           />
         </div>

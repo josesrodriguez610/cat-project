@@ -1,51 +1,70 @@
-const FormEdit = () => {
+const FormEdit = ({
+  thumbnail,
+  setThumbnail,
+  name,
+  setName,
+  date,
+  setDate,
+  owner,
+  setOwner,
+}) => {
   return (
     <form>
-      <div class="form-group row">
-        <label for="inputThumbnail" class="col-sm-2 col-form-label">
+      <div className="form-group row">
+        <label htmlFor="inputThumbnail" className="col-sm-2 col-form-label">
           Thumbnail URL
         </label>
-        <div class="col-sm-7">
+        <div className="col-sm-7">
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="inputThumbnail"
+            value={thumbnail}
+            onChange={(e) => setThumbnail(e.target.value)}
             // placeholder="Email"
           />
         </div>
       </div>
-      <div class="form-group row">
-        <label for="inputName" class="col-sm-2 col-form-label">
+      <div className="form-group row">
+        <label htmlFor="inputName" className="col-sm-2 col-form-label">
           Name
         </label>
-        <div class="col-sm-7">
+        <div className="col-sm-7">
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="inputName"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             // placeholder="Email"
           />
         </div>
       </div>
-      <div class="form-group row">
-        <label for="inputBirthDate" class="col-sm-2 col-form-label">
-          Date
+      <div className="form-group row">
+        <label htmlFor="inputBirthDate" className="col-sm-2 col-form-label">
+          Birth date
         </label>
-        <div class="col-sm-7">
+        <div className="col-sm-7">
           <input
-            class="form-control"
+            className="form-control"
             type="date"
-            value="2011-08-19"
-            id="inputBirthDate"
+            pattern="\d{4}-\d{2}-\d{2}"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
           />
         </div>
       </div>
-      <div class="form-group row">
-        <label for="inputBirthDate" class="col-sm-2 col-form-label">
+      <div className="form-group row">
+        <label htmlFor="inputOwner" className="col-sm-2 col-form-label">
           Owner
         </label>
-        <div class="col-sm-7">
-          <select class="form-control" id="exampleSelect1">
+        <div className="col-sm-7">
+          <select
+            className="form-control"
+            id="inputOwner"
+            value={owner}
+            onChange={(e) => setOwner(e.target.value)}
+          >
             <option>Select</option>
             <option>John Doe</option>
             <option>Jane Doe</option>

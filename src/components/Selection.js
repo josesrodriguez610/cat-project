@@ -1,3 +1,5 @@
+import { formatDate } from "../utils/helperFunctions";
+
 const Selection = ({ stateCats, cat, stateCat, setStateCats, setStateCat }) => {
   const { id, thumbnailUrl, birthDate, name } = cat;
   const handlePickCatClick = (id) => {
@@ -20,7 +22,7 @@ const Selection = ({ stateCats, cat, stateCat, setStateCats, setStateCat }) => {
         </div>
         <span>{name}</span>
       </div>
-      <span>{birthDate}</span>
+      <span>{formatDate(birthDate)}</span>
     </div>
   );
 };
