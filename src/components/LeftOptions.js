@@ -12,7 +12,7 @@ const LeftOptions = ({
   setSearchInput,
 }) => {
   return (
-    <div className="row left-container">
+    <div className="row left-container bg-primary">
       <div className="left-container-search">
         <Option
           Component={Search}

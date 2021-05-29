@@ -1,6 +1,7 @@
 .left-container {
   height: 100vh;
   padding: 0px;
+  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
 }
 
 .left-container-search {
