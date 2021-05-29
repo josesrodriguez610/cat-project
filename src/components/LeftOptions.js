@@ -11,30 +11,47 @@ const LeftOptions = ({
   setSearchInput,
 }) => {
   return (
-    <div style={{ height: "100vh", display: "grid" }}>
-      <Option
-        Component={Search}
-        searchInput={searchInput}
-        setSearchInput={setSearchInput}
-      />
-      {stateCats
-        .filter((cat) =>
-          !searchInput || /^\s*$/.test(searchInput)
-            ? cat
-            : cat.name.toLowerCase().includes(searchInput.toLowerCase())
-        )
-        .map((cat) => (
-          <>
-            <Option
-              Component={Selection}
-              stateCats={stateCats}
-              stateCat={stateCat}
-              setStateCats={setStateCats}
-              cat={cat}
-              setStateCat={setStateCat}
-            />
-          </>
-        ))}
+    <div className="row" style={{ height: "100vh", padding: "0px" }}>
+      <div
+        style={{
+          height: "20%",
+          borderBottom: "1px solid",
+          borderLeft: "1px solid",
+          padding: "0px",
+        }}
+      >
+        <Option
+          Component={Search}
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+        />
+      </div>
+      <div style={{ height: "80%", overflow: "auto" }}>
+        {stateCats
+          .filter((cat) =>
+            !searchInput || /^\s*$/.test(searchInput)
+              ? cat
+              : cat.name.toLowerCase().includes(searchInput.toLowerCase())
+          )
+          .map((cat) => (
+            <div
+              style={{
+                height: "34%",
+                borderTop: "1px solid",
+                paddingLeft: "30px",
+              }}
+            >
+              <Option
+                Component={Selection}
+                stateCats={stateCats}
+                stateCat={stateCat}
+                setStateCats={setStateCats}
+                cat={cat}
+                setStateCat={setStateCat}
+              />
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

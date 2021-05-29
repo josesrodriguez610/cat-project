@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LeftOptions from "./components/LeftOptions";
 import RightDisplay from "./components/RightDisplay";
 import { cats } from "./utils/data";
@@ -17,6 +17,21 @@ function App() {
   const [date, setDate] = useState("");
   const [owner, setOwner] = useState("");
   const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    const data = localStorage.getItem("stateCats");
+    try {
+      if (data) {
+        setStateCats(JSON.parse(data));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("stateCats", JSON.stringify(stateCats));
+  });
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
@@ -45,9 +60,9 @@ function App() {
   };
 
   return (
-    <div className="app container">
+    <div className="app">
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-md-4" style={{ borderRight: "1px solid" }}>
           <LeftOptions
             stateCats={stateCats}
             setStateCats={setStateCats}
