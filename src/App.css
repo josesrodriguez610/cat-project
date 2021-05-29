@@ -1,8 +1,8 @@
 .app {
 }
 
-.leftOption-container {
-  /* padding-top: 5%; */
+.leftOption {
+  border-right: 1px solid;
 }
 
 .edit-modal {

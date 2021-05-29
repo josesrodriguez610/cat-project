@@ -1,11 +1,9 @@
+import "../styles/Option.css";
+
 const Option = (props) => {
   const { Component } = props;
   return (
-    <div
-      style={{
-        paddingTop: "30px",
-      }}
-    >
+    <div className="option">
       <Component {...props} />
     </div>
   );

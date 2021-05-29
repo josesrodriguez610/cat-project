@@ -1,0 +1,21 @@
+.left-container {
+  height: 100vh;
+  padding: 0px;
+}
+
+.left-container-search {
+  height: 20%;
+  border-left: 1px solid;
+  padding: 0px;
+}
+
+.left-container-catOptions {
+  height: 80%;
+  overflow: auto;
+}
+
+.option-container {
+  height: 34%;
+  border-top: 1px solid;
+  padding-left: 40px;
+}

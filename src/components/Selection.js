@@ -1,6 +1,7 @@
 import { formatDate } from "../utils/helperFunctions";
+import "../styles/Selection.css";
 
-const Selection = ({ stateCats, cat, stateCat, setStateCats, setStateCat }) => {
+const Selection = ({ stateCats, cat, stateCat, setStateCat }) => {
   const { id, thumbnailUrl, birthDate, name } = cat;
   const handlePickCatClick = (id) => {
     let selectedCat = stateCats.find((cat) => cat.id === id);
@@ -11,27 +12,14 @@ const Selection = ({ stateCats, cat, stateCat, setStateCats, setStateCat }) => {
   };
 
   return (
-    <div
-      onClick={() => handlePickCatClick(id)}
-      key={id}
-      style={{ cursor: "pointer" }}
-    >
+    <div className="selection" onClick={() => handlePickCatClick(id)} key={id}>
       <div className="col-xs-6 col-md-8">
-        <div style={{ display: "flex" }}>
-          <img
-            style={{
-              width: "150px",
-              objectFit: "cover",
-              boxShadow: "5px 5px 5px rgba(68, 68, 68, 0.6)",
-              borderRadius: "5px",
-            }}
-            src={thumbnailUrl}
-            alt={name}
-          />
-          <span>{name}</span>
+        <div>
+          <img className="selection-img" src={thumbnailUrl} alt={name} />
+          <span className="selection-name">{name}</span>
         </div>
         <div>
-          <span>{formatDate(birthDate)}</span>
+          <span className="selection-birthday">{formatDate(birthDate)}</span>
         </div>
       </div>
     </div>

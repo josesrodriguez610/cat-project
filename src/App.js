@@ -62,7 +62,7 @@ function App() {
   return (
     <div className="app">
       <div className="row">
-        <div className="col-md-4" style={{ borderRight: "1px solid" }}>
+        <div className="col-md-4 leftOption">
           <LeftOptions
             stateCats={stateCats}
             setStateCats={setStateCats}
@@ -116,7 +116,7 @@ function App() {
       {deleteConfirmationModalOpen && stateCat && (
         <div className="delete-modal">
           <Modal
-            title="Are you sure you want to delete this cat?"
+            title={`Delete ${stateCat.name}`}
             leftButtonTitle="Delete"
             leftButtonColor="btn-danger"
             handleSubmit={handleDeleteFromList}

@@ -1,14 +1,14 @@
 import { formatDate } from "../utils/helperFunctions";
+import "../styles/RightDisplay.css";
 const RightDisplay = ({ cat }) => {
   // const { id, thumbnailUrl, name, birthDate, ownerName, viewsCount } = cat;
   return (
-    <div className="row">
+    <div className="rightDisplay">
       {cat && (
-        <div className="col-sm-6 col-md-4" style={{ border: "none" }}>
+        <div className="col-sm-6 col-md-4 rightDisplay-container">
           <div>
             <img
-              width={600}
-              style={{ objectFit: "contain" }}
+              className="rightDisplay-img"
               src={cat.thumbnailUrl}
               alt={cat.name}
             />

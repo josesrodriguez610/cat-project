@@ -1,4 +1,19 @@
-.hey {
+.modalContainer {
+  width: 60%;
+}
+
+.header-style {
   display: flex;
   justify-content: space-between;
+}
+
+.modalTitle {
+  padding-right: 80%;
+}
+
+.body-container {
+  height: 400px;
+  padding-top: 10%;
+  padding-left: 16%;
+  justify-content: center;
 }

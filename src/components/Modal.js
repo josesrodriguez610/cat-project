@@ -11,12 +11,10 @@ const Modal = (props) => {
   } = props;
 
   return (
-    <div className="modal-dialog" style={{ width: "60%" }}>
+    <div className="modal-dialog modalContainer">
       <div className="modal-content">
-        <div className="modal-header hey">
-          <h3 className="modal-title" style={{ paddingRight: "80%" }}>
-            {title}
-          </h3>
+        <div className="modal-header header-style">
+          <h3 className="modal-title modalTitle">{title}</h3>
           <button
             onClick={() => setModalCancel(false)}
             type="button"
@@ -24,13 +22,11 @@ const Modal = (props) => {
             data-dismiss="modal"
             aria-label="Close"
           >
-            <span aria-hidden="true" style={{ padding: "0px", margin: "0px" }}>
-              &times;
-            </span>
+            <span aria-hidden="true">&times;</span>
           </button>
         </div>
         {Component && (
-          <div className="modal-body" style={{ height: "400px" }}>
+          <div className="modal-body body-container">
             <Component {...props} />
           </div>
         )}

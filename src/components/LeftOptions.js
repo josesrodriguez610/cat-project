@@ -1,6 +1,7 @@
 import Search from "./Search";
 import Option from "./Option";
 import Selection from "./Selection";
+import "../styles/leftOption.css";
 
 const LeftOptions = ({
   stateCats,
@@ -11,22 +12,15 @@ const LeftOptions = ({
   setSearchInput,
 }) => {
   return (
-    <div className="row" style={{ height: "100vh", padding: "0px" }}>
-      <div
-        style={{
-          height: "20%",
-          borderBottom: "1px solid",
-          borderLeft: "1px solid",
-          padding: "0px",
-        }}
-      >
+    <div className="row left-container">
+      <div className="left-container-search">
         <Option
           Component={Search}
           searchInput={searchInput}
           setSearchInput={setSearchInput}
         />
       </div>
-      <div style={{ height: "80%", overflow: "auto" }}>
+      <div className="left-container-catOptions">
         {stateCats
           .filter((cat) =>
             !searchInput || /^\s*$/.test(searchInput)
@@ -34,13 +28,7 @@ const LeftOptions = ({
               : cat.name.toLowerCase().includes(searchInput.toLowerCase())
           )
           .map((cat) => (
-            <div
-              style={{
-                height: "34%",
-                borderTop: "1px solid",
-                paddingLeft: "40px",
-              }}
-            >
+            <div className="option-container">
               <Option
                 Component={Selection}
                 stateCats={stateCats}
